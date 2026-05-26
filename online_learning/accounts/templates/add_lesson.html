@@ -1,0 +1,108 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Add Lesson</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Anek+Malayalam:wght@100..800&family=Bungee&family=Gravitas+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Italianno&family=Roboto:ital,wght@0,100..900;1,100..900&family=Smooch+Sans:wght@100..900&family=Yesteryear&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/addLesson.css' %}" />
+  </head>
+
+  <body>
+    <div class="main-container">
+      <!-- TOP BAR -->
+
+      <div class="top-bar">
+        <div class="logo">
+          <div class="logo-box">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+
+          <h1>Instructor Panel</h1>
+        </div>
+
+        <a href="/instructor-dashboard/" class="back-btn">
+          <button>Back To Dashboard</button>
+        </a>
+      </div>
+
+      <!-- HERO SECTION -->
+
+      <div class="hero">
+        <div>
+          <p>Add New Lesson</p>
+
+          <h1>{{ course.title }}</h1>
+
+          <p>Upload lesson content and help students learn better.</p>
+        </div>
+
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" />
+      </div>
+
+      <!-- FORM SECTION -->
+
+      <div class="form-container">
+        <h1 class="form-title">Add Lesson</h1>
+
+        <div class="info-card">
+          <h3>Important</h3>
+
+          <p>
+            Add a proper lesson title and a valid YouTube embed "i-frame"link so
+            students can watch the lesson directly inside the course.
+          </p>
+        </div>
+
+        <form method="POST">
+          {% csrf_token %}
+
+          <!-- LESSON TITLE -->
+
+          <div class="input-group">
+            <label> Lesson Title </label>
+
+            <div class="input-wrapper">
+              <input
+                type="text"
+                name="title"
+                placeholder="Enter lesson title"
+              />
+            </div>
+          </div>
+
+          <!-- YOUTUBE LINK -->
+
+          <div class="input-group">
+            <label> YouTube Embed URL </label>
+
+            <div class="input-wrapper">
+              <input
+                type="text"
+                name="youtube_link"
+                placeholder="Paste YouTube embed link"
+              />
+            </div>
+          </div>
+
+          <!-- BUTTON -->
+
+          <button type="submit" class="submit-btn">Add Lesson</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

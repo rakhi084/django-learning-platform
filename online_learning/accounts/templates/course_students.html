@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Students</title>
+
+    <link rel="stylesheet" href="/static/css/students.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Anek+Malayalam:wght@100..800&family=Bungee&family=Gravitas+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Italianno&family=Roboto:ital,wght@0,100..900;1,100..900&family=Smooch+Sans:wght@100..900&family=Yesteryear&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="main-container">
+      <!-- HERO -->
+
+      <div class="hero">
+        <div>
+          <p>Student Progress Overview</p>
+
+          <h1>{{ course.title }}</h1>
+
+          <h3>Total Students : {{ enrollments.count }}</h3>
+        </div>
+
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" />
+      </div>
+
+      <!-- TITLE -->
+
+      <div class="section-title">
+        <h1>Enrolled Students</h1>
+      </div>
+
+      <!-- STUDENTS GRID -->
+
+      <div class="students-container">
+        {% for item in progress_data %}
+
+        <div class="student-card">
+          <div class="student-top">
+            <div class="student-icon">
+              <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div>
+              <h2>{{ item.student.username }}</h2>
+
+              <p>Student</p>
+            </div>
+          </div>
+
+          <div class="progress-section">
+            <div class="progress-text">
+              <span> Progress </span>
+
+              <span> {{ item.progress_percentage }}% </span>
+            </div>
+
+            <div class="progress-bar">
+              <div
+                class="progress-fill"
+                style="
+                                width:
+                                {{ item.progress_percentage }}%;
+                            "
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>

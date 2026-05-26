@@ -1,0 +1,126 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{{ course_type }}</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+
+   
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Anek+Malayalam:wght@100..800&family=Bungee&family=Gravitas+One&family=Italianno&family=Roboto:ital,wght@0,100..900;1,100..900&family=Smooch+Sans:wght@100..900&family=Yesteryear&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/course_type.css' %}" />
+  </head>
+
+  <body>
+     <!-- Header -->
+
+    <header id="header">
+      <div class="img-con">
+        <img
+          src="https://www.intervaledu.com/static/web/images/logo/interval_logo.png"
+          alt="logo"
+        />
+      </div>
+
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+
+          <li>
+            <a href="{% url 'course_type' 'technology' %}">Technology & Development</a>
+          </li>
+
+          <li>
+            <a href="{% url 'course_type' 'career' %}">Career & Professional Growth</a>
+          </li>
+
+          <li>
+            <a href="/">Join Club</a>
+          </li>
+
+          <li>
+            <a href="/">Become Teacher</a>
+          </li>
+
+          <li>
+            <a href="/">Career</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="auth-section">
+        {% if request.user.is_authenticated %}
+
+        <h3 class="user-name">Welcome {{ request.user.username }}</h3>
+
+        <p class="role-text">{{ request.user.role }}</p>
+
+        <a href="/logout/">
+          <button class="btn">Logout</button>
+        </a>
+
+        {% else %}
+
+        <a href="/login/">
+          <button class="btn">Login</button>
+        </a>
+
+        {% endif %}
+      </div>
+    </header>
+    <!--end of header-->
+    <section class="course-page">
+      <div class="top-banner">
+        <div class="overlay"></div>
+
+        <div class="banner-content">
+          <h1>{{ course_type }}</h1>
+
+          <p>Explore professional courses and improve your skills.</p>
+        </div>
+      </div>
+
+      <div class="course-container">
+        {% for course in courses %}
+
+        <div class="course-card">
+          <div class="img-box">
+            <img src="{{ course.thumbnail.url }}" />
+          </div>
+
+          <div class="course-content">
+            <h2>{{ course.title }}</h2>
+
+            <p>{{ course.description }}</p>
+
+            <a href="{% url 'course_detail' course.id %}" class="view-btn">
+              View Course
+            </a>
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+    </section>
+  </body>
+</html>

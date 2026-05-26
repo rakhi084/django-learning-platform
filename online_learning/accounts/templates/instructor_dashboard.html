@@ -1,0 +1,196 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Instructor Dashboard</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Anek+Malayalam:wght@100..800&family=Bungee&family=Gravitas+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Italianno&family=Roboto:ital,wght@0,100..900;1,100..900&family=Smooch+Sans:wght@100..900&family=Yesteryear&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/ins_dashboard.css' %}" />
+  </head>
+
+  <body>
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+      <div class="logo-box">
+        <i class="fa-solid fa-graduation-cap"></i>
+      </div>
+
+      <div class="menu">
+        <a href="#">
+          <i class="fa-solid fa-table-columns"></i>
+          Dashboard
+        </a>
+
+        <a href="#my_course_ins">
+          <i class="fa-solid fa-book"></i>
+          My Courses
+        </a>
+
+        <a href="/all-students">
+          <i class="fa-solid fa-user-group"></i>
+          Students
+        </a>
+
+        <a href="/create-course/">
+          <i class="fa-solid fa-plus"></i>
+          Create Course
+        </a>
+
+        <a href="#notice_section">
+          <i class="fa-solid fa-bell"></i>
+          Notices
+        </a>
+
+        <a href="/logout/">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Logout
+        </a>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+
+    <div class="main-content">
+      <!-- TOP BAR -->
+
+      <div class="top-bar">
+        <div class="search-box">
+          <input type="text" placeholder="Search courses..." />
+        </div>
+
+        <div class="profile">
+          <img src="{{ request.user.profile_pic.url }}" />
+          <!-- <img src="https://i.pravatar.cc/150?img=12" /> -->
+
+          <div>
+            <h3>{{ request.user.username }}</h3>
+
+            <p>Instructor</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- HERO -->
+
+      <div class="hero">
+        <div>
+          <p>Instructor Panel</p>
+
+          <h1>Welcome back, {{ request.user.username }}!</h1>
+
+          <p>Manage courses and guide your students.</p>
+        </div>
+
+        <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" />
+      </div>
+
+      <!-- STATS -->
+
+      <div class="stats">
+        <div class="stat-card">
+          <h1>{{ courses|length }}</h1>
+
+          <p>Total Courses</p>
+        </div>
+
+        <div class="stat-card">
+          <h1>240</h1>
+
+          <p>Total Students</p>
+        </div>
+
+        <div class="stat-card">
+          <h1>78%</h1>
+
+          <p>Avg Student Progress</p>
+        </div>
+      </div>
+
+      <!-- COURSES -->
+
+      <div class="section-title">
+        <h1>My Courses</h1>
+
+        <a href="#"> See all </a>
+      </div>
+
+
+
+      <section id="my_course_ins">
+
+     
+      <div class="courses">
+        {% for course in courses %}
+
+        <div class="course-card">
+          <img src="{{ course.thumbnail.url }}" />
+
+          <div class="course-content">
+            <h2>{{ course.title }}</h2>
+
+            <p>{{ course.description }}</p>
+
+            <div class="button-group">
+              <a href="/course/{{ course.id }}/add-lesson/">
+                <button class="btn1">Add Lesson</button>
+              </a>
+
+              <a href="/course/{{ course.id }}/">
+                <button class="btn2">View Course</button>
+              </a>
+
+              <a href="/course/{{ course.id }}/students/">
+                <button class="btn3">Students</button>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+       </section>
+
+      <!-- NOTICE SECTION -->
+
+      <section id="notice_section">
+        <div class="notice-box">
+          <h1>Send Notice To Students</h1>
+
+          <form method="POST" action="{% url 'create_notice' %}">
+            {% csrf_token %}
+
+            <input
+              type="text"
+              name="title"
+              placeholder="Notice title"
+              class="notice-input"
+            />
+
+            <textarea
+              name="message"
+              placeholder="Write important notice or announcement..."
+            >
+            </textarea>
+
+            <button type="submit">Publish Notice</button>
+          </form>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

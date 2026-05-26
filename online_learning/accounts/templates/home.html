@@ -1,0 +1,449 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Home</title>
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Anek+Malayalam:wght@100..800&family=Bungee&family=Gravitas+One&family=Italianno&family=Roboto:ital,wght@0,100..900;1,100..900&family=Smooch+Sans:wght@100..900&family=Yesteryear&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Header -->
+
+    <header id="header">
+      <div class="img-con">
+        <img src="{% static 'images/logo.png' %}" alt="logo" />
+      </div>
+
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+
+          <li>
+            <a href="{% url 'course_type' 'technology' %}"
+              >Technology & Development</a
+            >
+          </li>
+
+          <li>
+            <a href="{% url 'course_type' 'career' %}"
+              >Career & Professional Growth</a
+            >
+          </li>
+
+          <li>
+            <a href="{% url 'about' %}">about us</a>
+          </li>
+
+          <li>
+            <a href="{% url 'become_teacher' %}">Become Teacher</a>
+          </li>
+
+          <li>
+            <a href="{% url 'contact' %}">Contact us</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="auth-section">
+        {% if request.user.is_authenticated %}
+
+        <h3 class="user-name">Welcome {{ request.user.username }}</h3>
+
+        <p class="role-text">{{ request.user.role }}</p>
+
+        <a href="/logout/">
+          <button class="btn">Logout</button>
+        </a>
+
+        {% else %}
+
+        <a href="/login/">
+          <button class="btn">Login</button>
+        </a>
+
+        {% endif %}
+      </div>
+    </header>
+    <!--end of header-->
+
+    <!-- Hero Section -->
+
+    <section id="hero-content">
+      <div class="hero-con">
+        <div class="content-con">
+          <h1 class="title">
+            Helping yourself
+            <br />
+            become a future
+            <span class="job-title flip-in"> Engineer </span>
+          </h1>
+
+          <p>
+            The complete online learning platform to help you grow your skills,
+            career, and confidence
+          </p>
+
+          <!-- <button class="btn">Get Started Today</button> -->
+          <a href="{% url 'register' %}" class="btn-a"> Get Started Today </a>
+        </div>
+
+        <div class="img-con">
+          <img
+            src="https://copilot.microsoft.com/th/id/BCO.ae9c6ba7-80ff-48aa-8d40-5cc12530c8cf.png"
+            alt="hero"
+            id="hero_img"
+            class="flip-in"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Course Section -->
+
+    <section id="course-section">
+      <div class="cou-wrap">
+        <div class="text-con-cs">
+          <h1>
+            We help
+            <span id="col-text"> You </span>
+            to learn better
+          </h1>
+        </div>
+
+        <div class="course-card-con">
+          <!-- Technology -->
+
+          <a href="{% url 'course_type' 'technology' %}" class="course-link">
+            <div class="course-card a1">
+              <div class="icon">
+                <i class="fa-solid fa-brain"></i>
+              </div>
+
+              <div class="cou-text">
+                <p>Technology & Development</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- Career -->
+
+          <a href="{% url 'course_type' 'career' %}" class="course-link">
+            <div class="course-card a2">
+              <div class="icon">
+                <i class="fa-regular fa-pen-to-square"></i>
+              </div>
+
+              <div class="cou-text">
+                <p>Career & Professional Growth</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- Communication -->
+
+          <a href="{% url 'course_type' 'communication' %}" class="course-link">
+            <div class="course-card a3">
+              <div class="icon">
+                <i class="fa-solid fa-laptop-code"></i>
+              </div>
+
+              <div class="cou-text">
+                <p>Communication & Placement</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- Creativity -->
+
+          <a href="{% url 'course_type' 'creativity' %}" class="course-link">
+            <div class="course-card a4">
+              <div class="icon">
+                <i class="fa-solid fa-pills"></i>
+              </div>
+
+              <div class="cou-text">
+                <p>Creativity & Innovation</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo Section -->
+
+    <section id="demo-section">
+      <div class="demo-wrap">
+        <div class="img-con-de">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1682089142051-0fc9c0672d38?q=80&w=1170&auto=format&fit=crop"
+            alt="demo"
+          />
+        </div>
+
+        <div class="text-con-de">
+          <h2>
+            The Best
+            <span class="col-text"> Online Learning Platform </span>
+
+            <br />
+
+            To Upgrade Your Skills
+
+            <br />
+
+            And Advance Your Career
+          </h2>
+
+          <p>
+            🔹 Industry-Focused Courses
+            <br />
+
+            🔹 Hands-On Project Learning
+            <br />
+
+            🔹 Career & Interview Preparation
+            <br />
+
+            🔹 Flexible Learning Anytime, Anywhere
+          </p>
+
+          <p class="sub-text-de">
+            Build real-world skills, gain practical experience, and stay ahead
+            in today’s competitive digital world.
+          </p>
+
+          <!-- <button class="btn-e-long">Start Learning</button> -->
+          <a href="{% url 'all_courses' %}" class="btn-e-long">
+            Start Learning
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievement -->
+
+    <!-- Achievement Section -->
+
+    <section id="achieve-section">
+      <div class="achieve-wrap">
+        <div class="text-con-ach">
+          <h1>
+            Our
+            <span class="col-text"> worldwide </span>
+
+            Achievements
+          </h1>
+        </div>
+
+        <div class="img-con-ach">
+          <img
+            src="https://www.intervaledu.com/media/achievement/consulate.png"
+            alt=""
+          />
+
+          <img
+            src="https://www.intervaledu.com/media/achievement/Google_SSI.png"
+            alt=""
+          />
+
+          <img
+            src="https://www.intervaledu.com/media/achievement/iim.png"
+            alt=""
+          />
+
+          <img
+            src="https://www.intervaledu.com/media/achievement/Kerala_SM.png"
+            alt=""
+          />
+
+          <img
+            src="https://www.intervaledu.com/media/achievement/ijio.png"
+            alt=""
+          />
+
+          <img
+            src="https://www.intervaledu.com/media/achievement/Micresoft.png"
+            alt=""
+          />
+
+          <img
+            src="https://www.intervaledu.com/media/achievement/GSF.png"
+            alt=""
+          />
+
+          <img
+            src="https://www.intervaledu.com/media/achievement/TAMPERE.png"
+            alt=""
+          />
+
+          <img
+            src="https://www.intervaledu.com/media/achievement/entrepreneur.png"
+            alt=""
+          />
+
+          <img
+            src="https://www.intervaledu.com/media/achievement/nvidia3.png"
+            alt=""
+          />
+
+          <img
+            src="https://www.intervaledu.com/media/achievement/GFS_AI_Academy_India_-_Kochi_copy.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer id="footer">
+      <div class="foot-wrap">
+        <div class="foot-logo">
+          <img
+            src="{% static 'images/t-logo.png' %}"
+            alt="footer"
+            width="140"
+          />
+
+          <div class="adr-con f">
+            rc-hQ, cyber-city,hyderabad, Telangana, India
+
+            <br />
+
+            Call: +91 7013214219
+
+            <br />
+
+            Email: info@rc_edu.com
+          </div>
+        </div>
+
+        <div class="foot-nav f">
+          <ul>
+            <li>
+              <a class="f" href="/">Home</a>
+            </li>
+
+            <li>
+              <a class="f" href="/about">About</a>
+            </li>
+
+            <li>
+              <a class="f" href="/become-teacher">become an instructor</a>
+            </li>
+
+            <li>
+              <a class="f" href="/contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="foot-icon">
+          <i class="fa-brands fa-facebook f"></i>
+
+          <i class="fa-brands fa-linkedin f"></i>
+
+          <i class="fa-brands fa-instagram f"></i>
+
+          <i class="fa-brands fa-twitter f"></i>
+        </div>
+      </div>
+    </footer>
+    <!--end of footer-->
+    <!-- {% if request.user.role == "instructor" %}
+
+    <a href="/instructor-dashboard">
+      <button class="btn">Instructor Dashboard</button>
+    </a>
+
+    {% endif %} -->
+  </body>
+  <script>
+    const words = [
+      "Engineer",
+      "Data Scientist",
+      "Cloud Architect",
+      "Cyber Security",
+      "HR",
+      "Software Engineer",
+      "Designer",
+      "Web Developer",
+      "DevOps",
+    ];
+
+    const images = [
+      "https://copilot.microsoft.com/th/id/BCO.ae9c6ba7-80ff-48aa-8d40-5cc12530c8cf.png",
+
+      "https://copilot.microsoft.com/th/id/BCO.5e9fdb1d-06f4-4b5d-b5cb-b188c31c6aa2.png",
+
+      "https://copilot.microsoft.com/th/id/BCO.87e1e36e-3854-4708-920d-c09075c1a217.png",
+
+      "https://copilot.microsoft.com/th/id/BCO.5e5beedc-b59f-4356-8469-d8d34e5dac16.png",
+
+      "https://copilot.microsoft.com/th/id/BCO.dc09761b-498a-451e-af4b-cd19729dc47a.png",
+
+      "https://copilot.microsoft.com/th/id/BCO.533ed25f-4d5e-4842-a40a-c5543cf40a13.png",
+
+      "https://copilot.microsoft.com/th/id/BCO.a991bd10-9093-4761-b912-e1e344ec63ea.png",
+
+      "https://copilot.microsoft.com/th/id/BCO.ef46b57f-69be-43b6-8fa3-313b1aeb8abf.png",
+
+      "https://copilot.microsoft.com/th/id/BCO.78dce484-a439-432f-9ade-239f6a12b9a1.png",
+    ];
+
+    let index = 0;
+
+    const jobTitle = document.querySelector(".job-title");
+
+    const heroImg = document.getElementById("hero_img");
+
+    setInterval(() => {
+      jobTitle.classList.remove("flip-in");
+
+      heroImg.classList.remove("flip-in");
+
+      jobTitle.classList.add("flip-out");
+
+      heroImg.classList.add("flip-out");
+
+      setTimeout(() => {
+        index = (index + 1) % words.length;
+
+        jobTitle.innerText = words[index];
+
+        heroImg.src = images[index];
+
+        jobTitle.classList.remove("flip-out");
+
+        heroImg.classList.remove("flip-out");
+
+        jobTitle.classList.add("flip-in");
+
+        heroImg.classList.add("flip-in");
+      }, 400);
+    }, 3000);
+  </script>
+</html>

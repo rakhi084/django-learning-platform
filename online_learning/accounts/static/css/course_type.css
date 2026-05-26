@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: #edf1f5;
+  min-height: 100vh;
+}
+
+.course-page {
+  width: 100%;
+  padding: 40px;
+}
+
+.top-banner {
+  width: 100%;
+  height: 200px;
+  border-radius: 35px;
+  background: linear-gradient(135deg, #7b4dff, #b97cff);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 50px;
+  margin-bottom: 50px;
+}
+
+.overlay {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  right: -100px;
+  top: -120px;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+.banner-content h1 {
+  font-size: 55px;
+  font-weight: 800;
+  text-transform: capitalize;
+  margin-bottom: 15px;
+  font-family: "bungee", sans-serif;
+}
+
+.banner-content p {
+  font-size: 18px;
+  opacity: 0.9;
+  font-family: "anek-malayalam";
+}
+
+.course-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.course-card {
+  background: white;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  transition: 0.3s;
+}
+
+.course-card:hover {
+  transform: translateY(-10px);
+  background: #edf1f5;
+}
+
+.img-box {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.course-content {
+  padding: 25px;
+}
+
+.course-content h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #111;
+}
+
+.course-content p {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.course-content button {
+  border: none;
+  padding: 14px 25px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #7b4dff, #b97cff);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.course-content button:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .course-page {
+    padding: 20px;
+  }
+
+  .top-banner {
+    height: auto;
+    padding: 35px;
+  }
+
+  .banner-content h1 {
+    font-size: 40px;
+  }
+}
+
+.view-btn {
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+  padding: 14px 25px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #7b4dff, #b97cff);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.view-btn:hover {
+  transform: scale(1.05);
+}

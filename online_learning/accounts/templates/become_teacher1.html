@@ -1,0 +1,153 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Become a Teacher</title>
+
+    <link rel="stylesheet" href="{% static 'css/become_teacher1.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Anek+Malayalam:wght@100..800&family=Bungee&family=Gravitas+One&family=Italianno&family=Roboto:ital,wght@0,100..900;1,100..900&family=Smooch+Sans:wght@100..900&family=Yesteryear&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Header -->
+
+    <header id="header">
+      <div class="img-con">
+        <img src="{% static 'images/logo.png' %}" alt="logo" />
+      </div>
+
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+
+          <li>
+            <a href="{% url 'course_type' 'technology' %}"
+              >Technology & Development</a
+            >
+          </li>
+
+          <li>
+            <a href="{% url 'course_type' 'career' %}"
+              >Career & Professional Growth</a
+            >
+          </li>
+
+          <li>
+            <a href="{% url 'about' %}">about us</a>
+          </li>
+
+          <li>
+            <a href="{% url 'become_teacher' %}">Become Teacher</a>
+          </li>
+
+          <li>
+            <a href="{% url 'contact' %}">Contact us</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="auth-section">
+        {% if request.user.is_authenticated %}
+
+        <h3 class="user-name">Welcome {{ request.user.username }}</h3>
+
+        <p class="role-text">{{ request.user.role }}</p>
+
+        <a href="/logout/">
+          <button class="btn">Logout</button>
+        </a>
+
+        {% else %}
+
+        <a href="/login/">
+          <button class="btn">Login</button>
+        </a>
+
+        {% endif %}
+      </div>
+    </header>
+    <!--end of header-->
+
+    <div class="main-container">
+      <div class="left-section">
+        <h1>Become a Teacher</h1>
+
+        <p>
+          Share your knowledge with students around the world. Create courses,
+          upload lessons, and inspire learners.
+        </p>
+
+        <img src="{% static 'images/owl2li.png' %}" alt="Teacher" />
+      </div>
+
+      <div class="right-section">
+        <form
+          method="POST"
+          action="{% url 'teacher_application' %}"
+          class="teacher-form"
+        >
+          {% csrf_token %}
+
+          <h2>Teacher Application</h2>
+
+          <div class="input-box">
+            <label>Full Name</label>
+            <input type="text" name="full_name" required />
+          </div>
+
+          <div class="input-box">
+            <label>Email</label>
+            <input type="email" name="email" required />
+          </div>
+
+          <div class="input-box">
+            <label>Skills</label>
+            <input
+              type="text"
+              name="skills"
+              placeholder="Python, Django, React..."
+              required
+            />
+          </div>
+
+          <div class="input-box">
+            <label>Experience</label>
+            <textarea name="experience" rows="4" required></textarea>
+          </div>
+
+          <div class="input-box">
+            <label>Why do you want to teach?</label>
+            <textarea name="reason" rows="4" required></textarea>
+          </div>
+
+          <button type="submit">Submit Application</button>
+        </form>
+      </div>
+    </div>
+     <!-- FOOTER -->
+
+    <footer>
+        © 2026 RC-Edu. All Rights Reserved.
+    </footer>
+  </body>
+</html>

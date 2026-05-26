@@ -1,0 +1,109 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{{ lesson.title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Anek+Malayalam:wght@100..800&family=Bungee&family=Gravitas+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Italianno&family=Roboto:ital,wght@0,100..900;1,100..900&family=Smooch+Sans:wght@100..900&family=Yesteryear&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/learn_lesson.css' %}" />
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+
+    <nav class="top-navbar">
+      <div class="nav-left">
+        <a href="javascript:history.back()" class="nav-btn"> ← Back </a>
+
+        <a href="/" class="nav-btn"> Home </a>
+      </div>
+
+      <div class="nav-center">
+        <h2>{{ course.title }}</h2>
+      </div>
+
+      <div class="nav-right">
+        <div class="user-info">
+          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" />
+
+          <span> {{ request.user.username }} </span>
+        </div>
+
+        <a href="/logout/" class="logout-btn"> Logout </a>
+      </div>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+
+    <div class="main-container">
+      <!-- LEFT SIDEBAR -->
+
+      <div class="lesson-sidebar">
+        <div class="sidebar-top">
+          <h2>Lessons</h2>
+        </div>
+
+        <div class="lesson-list">
+          {% for item in lessons %}
+
+          <a href="{% url 'learn_lesson' item.id %}" class="lesson-card">
+            <div>
+              <h3>{{ item.title }}</h3>
+            </div>
+
+            {% if item in completed_lessons %}
+
+            <span class="completed"> ✓ </span>
+
+            {% endif %}
+          </a>
+
+          {% endfor %}
+        </div>
+
+        <!-- PROGRESS -->
+
+        <div class="progress-section">
+          <h3>Progress</h3>
+
+          <div class="progress-bar">
+            <div
+              class="progress-fill"
+              style="width: {{ progress.progress_percentage }}%;"
+            ></div>
+          </div>
+
+          <p>{{ progress.progress_percentage }}% Completed</p>
+        </div>
+      </div>
+
+      <!-- RIGHT CONTENT -->
+
+      <div class="video-section">
+        <div class="video-wrapper">{{ lesson.youtube_link|safe }}</div>
+
+        <div class="lesson-details">
+          <h1>{{ lesson.title }}</h1>
+
+          <p>{{ course.description }}</p>
+
+          <div class="button-group">
+            <a href="{% url 'complete_lesson' lesson.id %}">
+              <button class="complete-btn">Mark As Completed</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

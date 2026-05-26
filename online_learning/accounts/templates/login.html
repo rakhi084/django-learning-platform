@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Login</title>
+
+    {% load static %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Anek+Malayalam:wght@100..800&family=Bungee&family=Gravitas+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Italianno&family=Roboto:ital,wght@0,100..900;1,100..900&family=Smooch+Sans:wght@100..900&family=Yesteryear&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+  </head>
+
+  <body>
+    <div class="login-container">
+      <!-- <div class="logo">
+            <h1>INTERVAL</h1>
+            <p>Personalized Learning Platform</p>
+        </div> -->
+
+      {% if error %}
+      <h3 class="error">{{ error }}</h3>
+      {% endif %}
+
+      <h2>Login to your account</h2>
+
+      <form method="POST">
+        {% csrf_token %}
+
+        <label>Email</label>
+
+        <div class="input-box">
+          <input type="text" name="username" placeholder="Email" />
+        </div>
+
+        <div class="password-top">
+          <label>Password</label>
+          <!-- <a href="#">Forgot password?</a> -->
+        </div>
+
+        <div class="input-box">
+          <input type="password" name="password" placeholder="Password" />
+        </div>
+
+        <button type="submit">Login</button>
+      </form>
+
+      <div class="signup-text">
+        <p>Don't have an account?</p>
+        <a href="/register">Sign Up</a>
+      </div>
+    </div>
+  </body>
+</html>

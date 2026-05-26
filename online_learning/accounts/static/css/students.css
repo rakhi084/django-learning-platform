@@ -1,0 +1,182 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #eef2f7;
+
+  padding: 25px;
+}
+
+.main-container {
+  width: 100%;
+}
+
+/* HERO */
+
+.hero {
+  background: linear-gradient(90deg, #8f5cf7, #c084fc);
+
+  border-radius: 24px;
+
+  padding: 28px;
+
+  color: white;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 35px;
+}
+
+.hero h1 {
+  font-size: 38px;
+
+  margin: 10px 0;
+}
+
+.hero h3 {
+  font-size: 20px;
+
+  font-weight: normal;
+}
+
+.hero p {
+  font-size: 16px;
+}
+
+.hero img {
+  width: 140px;
+}
+
+/* TITLE */
+
+.section-title {
+  margin-bottom: 20px;
+}
+
+.section-title h1 {
+  font-size: 36px;
+
+  color: #111827;
+}
+
+/* STUDENTS */
+
+.students-container{
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 25px;
+
+    align-items: flex-start;
+
+}
+
+.student-card {
+  width: 320px;
+
+  background: white;
+
+  padding: 22px;
+
+  border-radius: 20px;
+
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+
+  transition: 0.3s ease;
+}
+
+.student-card:hover {
+   transform: translateY(-6px);
+
+    box-shadow: 0 10px 25px rgba(124,77,255,0.15);
+}
+
+.student-top {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  margin-bottom: 22px;
+}
+
+.student-icon {
+  width: 55px;
+
+  height: 55px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(-90deg, #0089d0 0, #a125c2 100%);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+.student-icon i {
+  color: white;
+
+  font-size: 22px;
+}
+
+.student-top h2 {
+  font-size: 22px;
+
+  color: #111827;
+}
+
+.student-top p {
+  color: gray;
+
+  margin-top: 4px;
+}
+
+/* PROGRESS */
+
+.progress-text {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+
+  font-weight: bold;
+
+  color: #374151;
+}
+
+.progress-bar {
+  width: 100%;
+
+  height: 10px;
+
+  background: #e5e7eb;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+
+  border-radius: 20px;
+
+  background: linear-gradient(-90deg, #0089d0 0, #a125c2 100%);
+
+  transition: width 1s ease;
+}

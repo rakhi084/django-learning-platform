@@ -1,0 +1,772 @@
+* {
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Anek Malayalam", sans-serif;
+}
+/*header section styling */
+.img-con img {
+  width: 150px;
+  height: 60px;
+}
+#header nav ul li {
+  list-style: none;
+  padding: 0 10px;
+}
+#header nav ul {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+}
+
+#header nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  font-family: "Anek Malayalam", sans-serif;
+  font-size: 15px;
+  /* line-height: 40px; */
+}
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  background-color: white;
+  width: 100%;
+ 
+}
+#header .btn {
+  border: none;
+  background: linear-gradient(-90deg, #0089d0 0, #a125c2 100%) !important;
+  border-radius: 30px;
+  padding: 0px 30px;
+  height: 40px;
+  width: 100px;
+  color: white;
+  margin: 9px;
+  font-family: "Anek Malayalam", sans-serif;
+  font-size: 15px;
+  line-height: 40px;
+  font-weight: 700;
+}
+.btn-e {
+  border: none;
+  background: linear-gradient(-90deg, #0089d0 0, #a125c2 100%) !important;
+  border-radius: 30px;
+  padding: 0px 30px;
+  height: 40px;
+  width: 100px;
+  color: white;
+  margin: 9px;
+  font-family: "Anek Malayalam", sans-serif;
+  font-size: 15px;
+  line-height: 40px;
+  font-weight: 700;
+}
+/*end of the header section styling */
+
+/*start of the hero section styling */
+
+.hero-con .content-con h1 {
+  font-family: "Anek Malayalam", sans-serif;
+  font-size: 50px;
+  line-height: 1.2;
+  font-weight: 900;
+  color: #000000;
+  margin: 0 0 18px;
+}
+.hero-con .content-con p {
+  font-family: "Anek Malayalam", sans-serif;
+  font-size: 15px;
+  line-height: 1.73;
+  font-weight: 400;
+  color: #000000;
+  margin: 0 0 18px;
+}
+.hero-con .content-con button {
+  border: none;
+  background: linear-gradient(-90deg, #0089d0 0, #a125c2 100%) !important;
+  border-radius: 30px;
+  padding: 0px 30px;
+  height: 40px;
+  color: white;
+  margin: 9px;
+  font-family: "Anek Malayalam", sans-serif;
+  font-size: 15px;
+  line-height: 40px;
+  font-weight: 700;
+}
+.hero-con .img-con {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  perspective: 1000px;
+}
+.hero-con .img-con img {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+}
+
+.hero-con .content-con .job-title {
+  background: linear-gradient(-90deg, #0089d0 0, #a125c2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  perspective: 1000px;
+}
+/* flip out animation */
+.flip-out {
+  animation: flipOut 0.4s forwards;
+}
+
+/* flip in animation */
+.flip-in {
+  animation: flipIn 0.4s forwards;
+}
+
+@keyframes flipOut {
+  0% {
+    transform: rotateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flipIn {
+  0% {
+    transform: rotateX(-90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0);
+    opacity: 1;
+  }
+}
+.hero-con {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+}
+#hero-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f8ff;
+  height: 80vh;
+}
+/*end of hero section styling*/
+/*start of the course section styling*/
+#course-section .text-con-cs h1 {
+  font-family: "Anek Malayalam", sans-serif;
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: 900;
+  color: #000000;
+  margin: 0 0 5px;
+}
+#course-section .text-con-cs #col-text {
+  background: linear-gradient(-90deg, #0089d0 0, #a125c2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  perspective: 1000px;
+}
+#course-section a {
+  text-decoration: none;
+  color: #000000;
+}
+.col-text {
+  background: linear-gradient(-90deg, #0089d0 0, #a125c2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  perspective: 1000px;
+}
+#course-section .course-card-con .course-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+  height: 220px;
+  transition: 0.5s ease-in-out;
+}
+
+#course-section .course-card-con .course-card .icon i {
+  font-size: 50px;
+  transition: 0.3s;
+}
+
+#course-section .course-card-con .course-card .cou-text p {
+  font-family: "Anek Malayalam", sans-serif;
+  font-size: 15px;
+  line-height: 1.73;
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
+  margin: 0 0 18px;
+}
+#course-section .course-card-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  transition: 0.3s;
+}
+.a1 .icon {
+  border-radius: 50%;
+  background-color: #d8f1f2;
+  padding: 20px;
+  margin: 10px;
+  transition: 0.3s ease-in-out;
+}
+.a1 {
+  background-color: #edf7fc;
+}
+.a1 .icon i {
+  color: #a86eb8;
+}
+
+.a2 {
+  background-color: #fef2f4;
+}
+.a2 .icon {
+  border-radius: 50%;
+  background-color: #fce1e5;
+  padding: 20px;
+  margin: 10px;
+}
+.a2 i {
+  color: #ee4a62;
+}
+.a3 {
+  background-color: #f2f4fd;
+}
+.a3 .icon {
+  border-radius: 50%;
+  background-color: #e0e5fa;
+  padding: 20px;
+  margin: 10px;
+}
+.a3 i {
+  color: #3a7ff4;
+}
+.a4 {
+  background-color: #fff7ef;
+}
+.a4 .icon {
+  border-radius: 50%;
+  background-color: #feedda;
+  padding: 20px;
+  margin: 10px;
+}
+.a4 i {
+  color: #f9b600;
+}
+.a1:hover {
+  background-color: #b514e1;
+  transform: translateY(-5px);
+  scale: 1.1;
+  border-radius: 30px;
+}
+.a2:hover {
+  background-color: #e41534;
+  transform: translateY(-5px);
+  scale: 1.1;
+  border-radius: 30px;
+}
+.a3:hover {
+  background-color: #095ef2;
+  transform: translateY(-5px);
+  scale: 1.1;
+  border-radius: 30px;
+}
+.a4:hover {
+  background-color: #f9b600;
+  transform: translateY(-5px);
+  scale: 1.1;
+  border-radius: 30px;
+}
+.cou-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 50px;
+  padding: 50px;
+}
+#course-section {
+  margin: 50px;
+}
+.course-link {
+  text-decoration: none;
+  color: white;
+}
+.course-card:hover {
+  background-color: #b514e1;
+  transform: translateY(-5px);
+  scale: 1.1;
+  border-radius: 30px;
+}
+.course-card:hover .icon i {
+  color: white;
+  transform: translateY(-5px);
+}
+
+.course-card:hover .cou-text p {
+  color: white;
+}
+
+/*end of course section styling*/
+/*start of the demo secton styling */
+.img-con-de img {
+  width: 377px;
+  height: 285px;
+  border-radius: 30px;
+}
+.text-con-de h2 {
+  font-family: "Anek Malayalam", sans-serif;
+  font-size: 50px;
+  line-height: 1.2;
+  font-weight: 900;
+  color: #000000;
+  margin: 0 0 5px;
+}
+.text-con-de p {
+  font-family: "Anek Malayalam", sans-serif;
+  font-size: 15px;
+  line-height: 1.73;
+
+  color: #000000;
+  margin: 0 0 18px;
+}
+.sub-text-de {
+  font-weight: 700;
+}
+.text-con-de {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.btn-e-long {
+  border: none;
+  background: linear-gradient(-90deg, #0089d0 0, #a125c2 100%) !important;
+  border-radius: 30px;
+  padding: 0px 30px;
+  height: 40px;
+  color: white;
+  margin: 9px;
+  font-family: "Anek Malayalam", sans-serif;
+  font-size: 15px;
+  line-height: 40px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.btn-a {
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+  background: linear-gradient(-90deg, #0089d0 0, #a125c2 100%) !important;
+  border-radius: 30px;
+  padding: 0px 30px;
+  height: 40px;
+  color: white;
+  margin: 9px;
+  font-family: "Anek Malayalam", sans-serif;
+  font-size: 15px;
+  line-height: 40px;
+  font-weight: 700;
+}
+
+.demo-wrap {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 50px;
+  margin: 30px;
+}
+/*end of thr demo section styling*/
+/*start of the achieve section*/
+.img-con-ach img {
+  width: 145px;
+  height: 145px;
+  margin: 20px;
+}
+.img-con-ach {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.achieve-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 50px;
+  margin: 30px;
+}
+.text-con-ach h1 {
+  font-family: "Anek Malayalam", sans-serif;
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: 900;
+  color: #000000;
+  margin: 0 0 5px;
+}
+#achieve-section {
+  display: flex;
+  background-color: #f9f7f4;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+/*end of the achieve section*/
+/*start of the footer section*/
+.foot-wrap {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  background-color: #000000;
+}
+.foot-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  padding: 50px;
+  margin: 30px;
+}
+.foot-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  margin: 30px;
+}
+.foot-nav li {
+  list-style: none;
+  padding: 10px;
+  font-family: "Anek Malayalam", sans-serif;
+  font-size: 15px;
+  line-height: 1.73;
+  font-weight: 400;
+  color: white;
+
+  margin: 0 0 18px;
+}
+.foot-nav a {
+  text-decoration: none;
+  color: white;
+}
+.foot-icon i {
+  font-size: 40px;
+  margin: 10px;
+  color: white;
+}
+.foot-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  margin: 30px;
+}
+.adr-con {
+  color: white;
+  font-size: 15px;
+  font-family: "Anek Malayalam", sans-serif;
+  font-weight: 400;
+  margin: 0 0 18px;
+}
+.f:hover {
+  color: #a125c2;
+}
+
+/* nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+.job-title {
+  color: #2563eb;
+  display: inline-block;
+}
+
+.flip-in {
+  animation: flipIn 0.4s ease forwards;
+}
+
+.flip-out {
+  animation: flipOut 0.4s ease forwards;
+}
+
+#hero_img {
+  width: 500px;
+  border-radius: 20px;
+}
+
+/* Animation */
+
+/* @keyframes flipOut {
+  0% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flipIn {
+  0% {
+    transform: rotateX(-90deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+} */
+
+.auth-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-name {
+  color: white;
+  font-size: 16px;
+}
+
+.role-text {
+  color: #00bfff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+/* ========================= */
+/* MOBILE RESPONSIVE DESIGN */
+/* ========================= */
+
+@media screen and (max-width: 768px) {
+
+  /* HEADER */
+
+  #header {
+    flex-direction: column;
+    padding: 15px;
+    gap: 15px;
+  }
+
+  #header nav ul {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  #header nav ul li a {
+    font-size: 14px;
+  }
+
+  .img-con img {
+    width: 120px;
+    height: auto;
+  }
+
+  #header .btn,
+  .btn-e {
+    width: auto;
+    padding: 0px 20px;
+    font-size: 14px;
+  }
+
+  /* HERO SECTION */
+
+  #hero-content {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .hero-con {
+    flex-direction: column-reverse;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .hero-con .content-con h1 {
+    font-size: 34px;
+    line-height: 1.3;
+  }
+
+  .hero-con .content-con p {
+    font-size: 14px;
+  }
+
+  .hero-con .img-con img {
+    max-width: 320px;
+  }
+
+  /* COURSE SECTION */
+
+  #course-section {
+    margin: 20px;
+  }
+
+  .cou-wrap {
+    padding: 20px;
+    gap: 30px;
+  }
+
+  #course-section .text-con-cs h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  #course-section .course-card-con {
+    flex-direction: column;
+  }
+
+  #course-section .course-card-con .course-card {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  /* DEMO SECTION */
+
+  .demo-wrap {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+    gap: 30px;
+  }
+
+  .img-con-de img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  .text-con-de h2 {
+    font-size: 32px;
+  }
+
+  .text-con-de p {
+    font-size: 14px;
+  }
+
+  /* ACHIEVE SECTION */
+
+  #achieve-section {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+
+  .achieve-wrap {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .text-con-ach h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .img-con-ach {
+    gap: 15px;
+  }
+
+  .img-con-ach img {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* FOOTER */
+
+  .foot-wrap {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .foot-logo,
+  .foot-nav,
+  .foot-icon {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .foot-icon i {
+    font-size: 28px;
+  }
+
+  /* AUTH SECTION */
+
+  .auth-section {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .user-name,
+  .role-text {
+    font-size: 14px;
+  }
+
+}
+
+
+/* ========================= */
+/* SMALL MOBILE DEVICES */
+/* ========================= */
+
+@media screen and (max-width: 480px) {
+
+  .hero-con .content-con h1 {
+    font-size: 28px;
+  }
+
+  .text-con-de h2,
+  .text-con-ach h1,
+  #course-section .text-con-cs h1 {
+    font-size: 26px;
+  }
+
+  .hero-con .img-con img,
+  .img-con-de img {
+    max-width: 260px;
+  }
+
+  .btn-a,
+  .btn-e-long,
+  .hero-con .content-con button {
+    width: 100%;
+    text-align: center;
+  }
+
+  #header nav ul {
+    gap: 5px;
+  }
+
+  #header nav ul li a {
+    font-size: 13px;
+  }
+
+}

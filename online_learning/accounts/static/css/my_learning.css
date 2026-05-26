@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "anek malayalam", sans-serif;
+}
+
+body {
+  background: #eef1f6;
+  
+  min-height: 100vh;
+}
+
+/* PAGE TITLE */
+
+.page-title {
+  font-size: 55px;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 35px;
+}
+
+/* COURSE GRID */
+
+.learning-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+/* CARD */
+
+.learning-card {
+  background: white;
+  border-radius: 25px;
+  padding: 30px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.learning-card:hover {
+  transform: translateY(-6px);
+}
+
+/* COURSE TITLE */
+
+.course-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 25px;
+}
+
+/* PROGRESS TEXT */
+
+.progress-text {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* PROGRESS BAR */
+
+.progress-container {
+  width: 100%;
+  height: 16px;
+  background: #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(to right, #8b5cf6, #c084fc);
+  border-radius: 20px;
+}
+
+/* PERCENT */
+
+.percent {
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #8b5cf6;
+}
+
+/* EMPTY */
+
+.empty-message {
+  font-size: 30px;
+  color: gray;
+  text-align: center;
+  margin-top: 100px;
+}
+.learning-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 350px));
+  gap: 25px;
+}
+
+.learning-card {
+  background: white;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.learning-card:hover {
+  transform: translateY(-5px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+
+  .page-title {
+    font-size: 40px;
+  }
+}
+footer {
+  width: 100%;
+  padding: 25px;
+  text-align: center;
+  background: #111827;
+  color: white;
+  margin-top: 20px;
+  position: absolute;
+  bottom: 0;
+}

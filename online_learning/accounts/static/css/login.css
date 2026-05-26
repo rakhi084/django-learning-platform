@@ -1,0 +1,247 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #eef4ff;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Background Glow */
+
+body::before{
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(to right,#7b2ff7,#1e90ff);
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.18;
+    top: -150px;
+    right: -100px;
+    animation: float 6s ease-in-out infinite;
+}
+
+body::after{
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: #1e90ff;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.12;
+    bottom: -120px;
+    left: -100px;
+    animation: float2 7s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(20px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+@keyframes float2{
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(20px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+/* Login Box */
+
+.login-container{
+    width: 500px;
+    padding: 40px;
+    background: rgba(255,255,255,0.82);
+    backdrop-filter: blur(14px);
+    border-radius: 28px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    z-index: 2;
+    animation: fadeUp 1s ease;
+    height: 600px;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Logo */
+
+.logo{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo h1{
+    font-size: 55px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: linear-gradient(to right,#7b2ff7,#1e90ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo p{
+    font-size: 13px;
+    color: #3d5a80;
+    margin-top: -8px;
+}
+
+/* Heading */
+
+.login-container h2{
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 42px;
+    color: #222;
+}
+
+/* Error */
+
+.error{
+    text-align: center;
+    color: red;
+    margin-bottom: 15px;
+}
+
+/* Labels */
+
+label{
+    font-size: 18px;
+    font-weight: 500;
+    color: #222;
+}
+
+/* Password top */
+
+.password-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.password-top a{
+    text-decoration: none;
+    color: #1e90ff;
+    font-size: 15px;
+}
+
+/* Inputs */
+
+.input-box{
+    margin-top: 10px;
+}
+
+.input-box input{
+    width: 100%;
+    padding: 18px;
+    border-radius: 16px;
+    border: 2px solid #d7dcff;
+    outline: none;
+    font-size: 17px;
+    transition: 0.3s;
+    background: rgba(255,255,255,0.7);
+}
+
+.input-box input:focus{
+    border-color: #7b2ff7;
+    box-shadow: 0 0 15px rgba(123,47,247,0.15);
+    transform: scale(1.01);
+}
+
+/* Button */
+
+button{
+    width: 100%;
+    margin-top: 28px;
+    padding: 10px;
+    border: none;
+    border-radius: 18px;
+    background: linear-gradient(to right,#7b2ff7,#1e90ff);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(30,144,255,0.3);
+}
+
+/* Shine Effect */
+
+button::before{
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 100%;
+    background: rgba(255,255,255,0.3);
+    top: 0;
+    left: -120px;
+    transform: skewX(-20deg);
+    transition: 0.6s;
+}
+
+button:hover::before{
+    left: 120%;
+}
+
+/* Sign Up */
+
+.signup-text{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup-text p{
+    font-size: 12px;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.signup-text a{
+    text-decoration: none;
+    color: #1e90ff;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.signup-text a:hover{
+    text-decoration: underline;
+}

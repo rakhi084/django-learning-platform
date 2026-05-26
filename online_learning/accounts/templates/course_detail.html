@@ -1,0 +1,182 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{{ course.title }}</title>
+
+    <link rel="stylesheet" href="{% static 'css/courseDetail.css' %}" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Anek+Malayalam:wght@100..800&family=Bungee&family=Gravitas+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Italianno&family=Roboto:ital,wght@0,100..900;1,100..900&family=Smooch+Sans:wght@100..900&family=Yesteryear&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="course-page">
+      <!-- Sidebar -->
+
+      <div class="sidebar">
+        <div class="logo-box">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+
+        <ul>
+          <li>
+            <a href="{% url 'student_dashboard' %}">
+              <i class="fa-solid fa-house"></i>
+
+              Dashboard
+            </a>
+          </li>
+
+          <li class="active">
+            <a href="{% url 'my_learning' %}">
+              <i class="fa-solid fa-book-open"></i>
+
+              My Course
+            </a>
+          </li>
+
+          <li>
+            <a href="#lesson_cd">
+              <i class="fa-solid fa-video"></i>
+
+              Lessons
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'about' %}">
+              <i class="fa-solid fa-chart-line"></i>
+
+              About us
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'contact' %}">
+              <i class="fa-solid fa-phone"></i>
+
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Main Content -->
+
+      <div class="main-content">
+        <!-- Topbar -->
+
+        <div class="topbar">
+          <h1>Course Details</h1>
+
+          <div class="profile">
+            <img src="{{ request.user.profile_pic.url }}" alt="" />
+
+            <div>
+              <h3>{{ request.user.username }}</h3>
+
+              <p>Student</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course Banner -->
+
+        <div class="course-banner">
+          <div class="banner-left">
+            <span class="course-tag"> Premium Course </span>
+
+            <h1>{{ course.title }}</h1>
+
+            <p>{{ course.description }}</p>
+
+            <div class="course-info">
+              <div>
+                <i class="fa-solid fa-video"></i>
+                {{ lessons|length }} Lessons
+              </div>
+
+              <div>
+                <i class="fa-solid fa-user-group"></i>
+                120+ Students
+              </div>
+
+              <div>
+                <i class="fa-solid fa-star"></i>
+                4.9 Rating
+              </div>
+            </div>
+
+            {% if enrolled %}
+
+            <button class="enrolled-btn">Enrolled</button>
+
+            {% else %}
+
+            <a href="/course/{{ course.id }}/enroll/">
+              <button class="enroll-btn">Enroll Now</button>
+            </a>
+
+            {% endif %}
+          </div>
+
+          <div class="banner-right">
+            <img src="{{ course.thumbnail.url }}" alt="course image" />
+          </div>
+        </div>
+
+        <!-- Lessons -->
+        <section id="lesson_cd">
+          <div class="lesson-section">
+            <div class="lesson-header">
+              <h2>Course Lessons</h2>
+
+              <span> {{ lessons|length }} Modules </span>
+            </div>
+
+            <div class="lesson-container">
+              {% for lesson in lessons %}
+
+              <div class="lesson-card">
+                <div class="lesson-icon">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+
+                <div class="lesson-content">
+                  <h3>{{ lesson.title }}</h3>
+
+                  <p>Learn modern concepts with practical examples</p>
+                </div>
+
+                {% if enrolled %}
+
+                <a href="/lesson/{{ lesson.id }}/">
+                  <button>Watch</button>
+                </a>
+
+                {% endif %}
+              </div>
+
+              {% endfor %}
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

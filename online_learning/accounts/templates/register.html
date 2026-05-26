@@ -1,0 +1,122 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+
+    <link rel="stylesheet" href="{% static 'css/register.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Anek+Malayalam:wght@100..800&family=Bungee&family=Gravitas+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Italianno&family=Roboto:ital,wght@0,100..900;1,100..900&family=Smooch+Sans:wght@100..900&family=Yesteryear&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="main-container">
+      <!-- LEFT SIDE -->
+      <div class="left-section">
+        <div class="overlay"></div>
+
+        <div class="left-content">
+          <h1 class="typing-text">Start your journey!</h1>
+
+          <!-- <img src="https://copilot.microsoft.com/th/id/BCO.19fa5278-5764-4a9f-a6f7-97c347db8760.png"
+                 alt="cloud image"> -->
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <div class="right-section">
+        <div class="register-card">
+          <h2>Create Your Account</h2>
+
+          <div class="progress-bar">
+            <div class="progress"></div>
+          </div>
+
+          <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="input-group">
+              <label>Full Name</label>
+              <input type="text" name="username" />
+            </div>
+
+            <div class="input-group">
+              <label>Email Address</label>
+              <input type="email" name="email" />
+            </div>
+
+            <div class="input-group">
+              <label>Password</label>
+              <input type="password" name="password" />
+            </div>
+
+            <div class="input-group">
+              <label>Confirm Password</label>
+              <input type="password" name="confirm_password" />
+            </div>
+
+            <div class="input-group">
+              <label>Profile Picture</label>
+
+              <div class="custom-file-upload">
+                <input type="file" name="profile_pic" id="profile_pic" />
+
+                <label for="profile_pic" class="upload-btn">
+                  <i class="fa-solid fa-image"></i>
+
+                  Choose Profile Picture
+                </label>
+
+                <span id="file-name"> No file chosen </span>
+              </div>
+            </div>
+
+            <!-- ROLE SWITCH -->
+
+            <div class="role-switch">
+              <input
+                type="radio"
+                id="student"
+                name="role"
+                value="student"
+                checked
+              />
+
+              <label for="student">Student</label>
+
+              <input type="radio" id="teacher" name="role" value="instructor" />
+
+              <label for="teacher">Teacher</label>
+            </div>
+
+            <button type="submit" class="register-btn">Create Account</button>
+          </form>
+
+          <p class="login-text">
+            Already have an account?
+            <a href="\login">Login</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const fileInput = document.getElementById("profile_pic");
+
+    const fileName = document.getElementById("file-name");
+
+    fileInput.addEventListener("change", function () {
+      if (this.files.length > 0) {
+        fileName.textContent = this.files[0].name;
+      } else {
+        fileName.textContent = "No file chosen";
+      }
+    });
+  </script>
+</html>
